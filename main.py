@@ -1,7 +1,7 @@
 import time
 from concurrent.futures import ThreadPoolExecutor
 from itertools import combinations_with_replacement
-
+import string
 from bs4 import BeautifulSoup
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
@@ -98,15 +98,13 @@ def input_check(client_input: str):
         exit()
 
 
-alphabet = 'abcdefghijklmnopqrstuvwxyz'
-
 
 def main():
     check()
     count = 0
     client_inp = input("Continue or new. 1 or 2: ")
     words = []
-    for x in list(combinations_with_replacement(alphabet, r=RANGE)):
+    for x in list(combinations_with_replacement(string.ascii_lowercase, r=RANGE)):
         words.append(''.join(x))
     cur, conn = connect_to_db()
     input_check(client_input=client_inp)
