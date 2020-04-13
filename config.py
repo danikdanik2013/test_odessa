@@ -1,0 +1,3 @@
+DB_NAME = 'bbb'
+THREADS_COUNT = 3
+RANGE = 2
